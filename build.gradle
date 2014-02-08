@@ -1,0 +1,58 @@
+allprojects {
+    group = 'com.thoughtworks.i0'
+    version = '0.3.0'
+    repositories {
+        maven {
+            url 'http://localhost:8081/nexus/content/groups/public/'
+        }
+    }
+
+    project.ext {
+        jerseyVersion = '2.5.1'
+        jettyVersion = '9.1.1.v20140108'
+        jacksonVersion = '2.3.1'
+        guavaVersion = '15.0'
+        guiceVersion = '3.1.9'
+        logbackVersion = '1.0.7'
+        slf4jVersion = '1.7.2'
+        flywayVersion = '2.3'
+        hibernateJpaVersion = '4.3.1.Final'
+        hibernateValidatorVersion = '5.0.2.Final'
+        grizzlyVersion = "2.3.11"
+        tyrusVersion = "1.4"
+        junitVersion = '4.10'
+        mockitoVersion = '1.9.5'
+        hk2Version='2.2.0'
+        tomcatVersion='8.0.1'
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = '1.7'
+
+    if (project.name != 'i0-gradle') {
+        dependencies {
+            compile 'com.google.code.findbugs:jsr305:2.0.1'
+            compile 'javax.inject:javax.inject:1'
+            compile 'javax.validation:validation-api:1.0.0.GA'
+
+            compile "com.google.guava:guava:$guavaVersion"
+            compile "org.sonatype.sisu.inject:guice-servlet:$guiceVersion"
+            compile "com.google.inject:guice:3.0"
+
+            compile "org.slf4j:slf4j-api:$slf4jVersion"
+
+            runtime "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
+
+            testCompile "junit:junit:$junitVersion"
+            testCompile "org.mockito:mockito-all:$mockitoVersion"
+        }
+    }
+}
+
+idea.project.ipr {
+    withXml { provider ->
+        provider.node.component.find { it.@name == 'VcsDirectoryMappings' }.mapping.@vcs = 'Git'
+    }
+}

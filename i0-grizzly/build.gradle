@@ -1,0 +1,17 @@
+dependencies {
+    compile project(':i0-core')
+
+    compile "com.google.inject.extensions:guice-servlet:$guiceVersion"
+    compile "org.glassfish.grizzly:grizzly-http-servlet:$grizzlyVersion"
+    compile "org.glassfish.grizzly:grizzly-framework-monitoring:$grizzlyVersion"
+    compile "org.glassfish.grizzly:grizzly-http-monitoring:$grizzlyVersion"
+    compile "org.glassfish.grizzly:grizzly-http-server-monitoring:$grizzlyVersion"
+
+    compile "javax.websocket:javax.websocket-api:1.0"
+    compile "org.glassfish.tyrus:tyrus-container-grizzly-server:$tyrusVersion"
+    compile "org.glassfish.gmbal:gmbal:3.2.0-b003"
+
+
+    testCompile "org.eclipse.jetty:jetty-client:$jettyVersion"
+    testCompile "org.eclipse.jetty.websocket:websocket-client:$jettyVersion"
+}

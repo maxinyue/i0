@@ -1,0 +1,8 @@
+dependencies {
+    compile project(':i0-core')
+
+    compile "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion"
+    compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion"
+    compile "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatVersion"
+    testCompile "org.eclipse.jetty:jetty-client:$jettyVersion"
+}
