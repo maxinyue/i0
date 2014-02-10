@@ -1,7 +1,7 @@
 dependencies {
     compile project(':i0-core')
 
-    compile "com.google.inject.extensions:guice-servlet:$guiceVersion"
+    compile "org.sonatype.sisu.inject:guice-servlet:$guiceVersion"
     compile "org.glassfish.grizzly:grizzly-http-servlet:$grizzlyVersion"
     compile "org.glassfish.grizzly:grizzly-framework-monitoring:$grizzlyVersion"
     compile "org.glassfish.grizzly:grizzly-http-monitoring:$grizzlyVersion"

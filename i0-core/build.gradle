@@ -11,7 +11,7 @@ dependencies {
     compile "org.slf4j:jul-to-slf4j:$slf4jVersion"
     compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
 
-    compile "com.sun.jersey:jersey-core:$jerseyVersion"
+  //  compile "com.sun.jersey:jersey-core:$jerseyVersion"
     compile "org.glassfish.jersey.containers:jersey-container-servlet:$jerseyVersion"
 
     testCompile "org.eclipse.jetty:jetty-servlet:$jettyVersion"

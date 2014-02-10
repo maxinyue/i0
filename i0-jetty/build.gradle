@@ -1,7 +1,6 @@
 dependencies {
     compile project(':i0-core')
-
-    compile "com.google.inject.extensions:guice-servlet:$guiceVersion"
+    compile "org.sonatype.sisu.inject:guice-servlet:$guiceVersion"
     compile "org.eclipse.jetty:jetty-servlet:$jettyVersion"
     compile "org.eclipse.jetty.websocket:websocket-servlet:$jettyVersion"
     compile "org.eclipse.jetty.websocket:websocket-server:$jettyVersion"
