@@ -32,6 +32,9 @@ allprojects {
         publications {
             mavenJava(MavenPublication) {
                 from components.java
+                artifact sourceJar {
+                    classifier "sources"
+                }
             }
         }
         repositories {
@@ -39,6 +42,10 @@ allprojects {
                 url 'http://132.147.68.178:8081/nexus/content/repositories/i0/'
             }
         }
+    }
+
+    task sourceJar(type: Jar) {
+        from sourceSets.main.allSource
     }
 
     sourceCompatibility = '1.7'
