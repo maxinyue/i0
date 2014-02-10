@@ -3,12 +3,12 @@ package com.herenit.i0.container.tomcat.internal;
 import com.google.inject.Binder;
 import com.google.inject.servlet.ServletModule;
 import com.herenit.i0.container.tomcat.EmbeddedTomcat;
-import com.thoughtworks.i0.config.Configuration;
-import com.thoughtworks.i0.core.ApplicationModule;
-import com.thoughtworks.i0.core.BindingProvider;
-import com.thoughtworks.i0.core.ContainerCreator;
-import com.thoughtworks.i0.core.ServletContainer;
-import com.thoughtworks.i0.core.internal.servlet.AssetServlet;
+import com.heren.i0.config.Configuration;
+import com.heren.i0.core.ApplicationModule;
+import com.heren.i0.core.BindingProvider;
+import com.heren.i0.core.ContainerCreator;
+import com.heren.i0.core.ServletContainer;
+import com.heren.i0.core.internal.servlet.AssetServlet;
 
 import java.util.HashMap;
 import java.util.Map;

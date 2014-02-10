@@ -1,9 +1,9 @@
 allprojects {
-    group = 'com.thoughtworks.i0'
-    version = '0.3.0'
+    group = 'com.heren.i0'
+    version = '1.0'
     repositories {
-	// mavenRepo url: 'http://localhost:8081/nexus/content/groups/public/';
-	 mavenRepo url: 'http://132.147.68.178:8081/nexus/content/groups/public/';
+        // mavenRepo url: 'http://localhost:8081/nexus/content/groups/public/';
+        mavenRepo url: 'http://132.147.68.178:8081/nexus/content/groups/public/';
     }
 
     project.ext {
@@ -21,12 +21,25 @@ allprojects {
         tyrusVersion = "1.4"
         junitVersion = '4.10'
         mockitoVersion = '1.9.5'
-        hk2Version='2.2.0'
-        tomcatVersion='8.0.1'
+        hk2Version = '2.2.0'
+        tomcatVersion = '8.0.1'
     }
 
     apply plugin: 'java'
     apply plugin: 'idea'
+    apply plugin: "maven-publish"
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                url 'http://132.147.68.178:8081/nexus/content/repositories/i0/'
+            }
+        }
+    }
 
     sourceCompatibility = '1.7'
 

@@ -1,7 +1,7 @@
 package com.herenit.i0.container.tomcat;
 
 import com.herenit.i0.container.tomcat.internal.EmbeddedFactory;
-import com.thoughtworks.i0.core.Facet;
+import com.heren.i0.core.Facet;
 
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;

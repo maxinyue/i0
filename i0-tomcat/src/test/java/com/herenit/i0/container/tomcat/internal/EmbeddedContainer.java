@@ -1,13 +1,13 @@
 package com.herenit.i0.container.tomcat.internal;
 
 import com.herenit.i0.container.tomcat.EmbeddedTomcat;
-import com.thoughtworks.i0.config.Configuration;
-import com.thoughtworks.i0.config.util.LogLevel;
-import com.thoughtworks.i0.core.Application;
-import com.thoughtworks.i0.core.ApplicationModule;
-import com.thoughtworks.i0.core.Servlet3;
+import com.heren.i0.config.Configuration;
+import com.heren.i0.config.util.LogLevel;
+import com.heren.i0.core.Application;
+import com.heren.i0.core.ApplicationModule;
+import com.heren.i0.core.Servlet3;
 
-import static com.thoughtworks.i0.config.Configuration.config;
+import static com.heren.i0.config.Configuration.config;
 
 
 @Application("embedded")
