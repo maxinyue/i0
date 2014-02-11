@@ -1,7 +1,7 @@
 dependencies {
     compile project(':i0-core')
 
-    compile "org.sonatype.sisu.inject:guice-persist:$guiceVersion"
+    compile "com.google.inject.extensions:guice-persist:$guiceVersion"
     compile "com.googlecode.flyway:flyway-core:$flywayVersion"
 
     testCompile project(':i0-grizzly')

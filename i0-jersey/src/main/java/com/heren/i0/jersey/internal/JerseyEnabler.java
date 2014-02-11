@@ -9,6 +9,7 @@ import com.heren.i0.core.BindingProvider;
 import com.heren.i0.core.internal.servlet.AutoScanningServletModule;
 import com.heren.i0.jersey.RestApi;
 
+import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
 
 import static com.google.common.base.Joiner.on;
@@ -28,6 +29,7 @@ public class JerseyEnabler implements BindingProvider<RestApi, Configuration> {
                 ImmutableSet<String> packageSet = ImmutableSet.<String>builder()
                         .add(annotation.packages().length == 0 ? autoScanPackages : annotation.packages()).build();
 //                bind(ResourceConfig.class).toInstance(new MyApplication(on(",").skipNulls().join(packageSet), org.glassfish.jersey.jackson.JacksonFeature.class));
+                bind(ResourceConfig.class).toInstance(new I0ResourceConfig(on(",").skipNulls().join(packageSet)));
                 serve(annotation.prefix()).with(GuiceContainer.class, new ImmutableMap.Builder<String, String>()
                         .put(ServerProperties.PROVIDER_PACKAGES, on(",").skipNulls().join(packageSet)).build());
 //                serve(annotation.prefix()).with(Application.class);

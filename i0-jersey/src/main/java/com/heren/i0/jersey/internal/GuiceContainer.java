@@ -28,6 +28,7 @@ public class GuiceContainer extends ServletContainer {
     @Inject
     public GuiceContainer(ResourceConfig resourceConfig, Injector injector) {
         super();
+
         this.injector = injector;
    //     getConfiguration().register(JacksonFeature.class);
     }

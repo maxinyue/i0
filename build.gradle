@@ -1,6 +1,6 @@
 allprojects {
     group = 'com.heren.i0'
-    version = '1.0'
+    version = '1.0.1-SNAPSHOT'
     repositories {
         // mavenRepo url: 'http://localhost:8081/nexus/content/groups/public/';
         mavenRepo url: 'http://132.147.68.178:8081/nexus/content/groups/public/';
@@ -11,7 +11,7 @@ allprojects {
         jettyVersion = '9.1.1.v20140108'
         jacksonVersion = '2.3.1'
         guavaVersion = '15.0'
-        guiceVersion = '3.1.9'
+        guiceVersion = '3.0'
         logbackVersion = '1.0.7'
         slf4jVersion = '1.7.2'
         flywayVersion = '2.3'
@@ -39,7 +39,7 @@ allprojects {
         }
         repositories {
             maven {
-                url 'http://132.147.68.178:8081/nexus/content/repositories/i0/'
+                url 'http://132.147.68.178:8081/nexus/content/repositories/i0-snapshot/'
             }
         }
     }
@@ -57,7 +57,7 @@ allprojects {
             compile 'javax.validation:validation-api:1.0.0.GA'
 
             compile "com.google.guava:guava:$guavaVersion"
-            compile "org.sonatype.sisu.inject:guice-servlet:$guiceVersion"
+            compile "com.google.inject.extensions:guice-servlet:$guiceVersion"
             compile "com.google.inject:guice:3.0"
 
             compile "org.slf4j:slf4j-api:$slf4jVersion"
