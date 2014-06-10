@@ -1,6 +1,6 @@
 allprojects {
     group = 'com.heren.i0'
-    version = '1.0.4-SNAPSHOT'
+    version = '1.0.4'
     repositories {
         // mavenRepo url: 'http://localhost:8081/nexus/content/groups/public/';
         mavenRepo url: 'http://132.147.68.178:8081/nexus/content/groups/public/';
@@ -39,7 +39,7 @@ allprojects {
         }
         repositories {
             maven {
-                url 'http://132.147.68.178:8081/nexus/content/repositories/i0-snapshot/'
+                url 'http://132.147.68.178:8081/nexus/content/repositories/i0/'
             }
         }
     }

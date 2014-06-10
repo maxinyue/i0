@@ -38,13 +38,16 @@ public class TyrusWebsocketServerContainer extends TyrusServerContainer {
         this.port = port;
         this.collector = new ErrorCollector();
         componentProvider = ComponentProviderService.create();
+
     }
 
     public void start() throws IOException, DeploymentException {
         for (Class<?> endpointClass : classes) {
             AnnotatedEndpoint endpoint = AnnotatedEndpoint.fromInstance(injector.getInstance(endpointClass), componentProvider, true, collector);
             register(endpoint);
+//            addEndpoint(endpointClass);
         }
+        server.getServer().getListener("grizzly").getKeepAlive().setIdleTimeoutInSeconds(-1);
         server.getServer().getListener("grizzly").registerAddOn(new WebSocketAddOn(this));
     }
 

@@ -29,7 +29,8 @@ public class Embedded implements ServletContainer {
         injector = Guice.createInjector(modules);
         WebappContext context = new WebappContext(name, name);
         context.addFilter("guice", GuiceFilter.class).addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), "/*");
-        context.addServlet("default", new DefaultServlet(new ArraySet(Embedded.class)) {}).addMapping("/*");
+        context.addServlet("default", new DefaultServlet(new ArraySet(Embedded.class)) {
+        }).addMapping("/*");
         context.addListener(new GuiceServletContextListener() {
             @Override
             protected Injector getInjector() {
