@@ -48,7 +48,9 @@ public class Embedded implements ServletContainer {
     @Override
     public void start(boolean standalone) throws Exception {
         server.start();
-        if (standalone) System.in.read();
+        if (standalone) {
+            Thread.sleep(Integer.MAX_VALUE);
+        }
     }
 
 

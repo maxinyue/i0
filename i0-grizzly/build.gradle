@@ -13,5 +13,6 @@ dependencies {
 
 
     testCompile "org.eclipse.jetty:jetty-client:$jettyVersion"
+    testCompile project(':i0-persist-jpa')
     testCompile "org.eclipse.jetty.websocket:websocket-client:$jettyVersion"
 }

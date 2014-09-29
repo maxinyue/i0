@@ -1,9 +1,9 @@
 allprojects {
     group = 'com.heren.i0'
-    version = '1.0.4'
+    version = '1.0.5'
     repositories {
         // mavenRepo url: 'http://localhost:8081/nexus/content/groups/public/';
-        mavenRepo url: 'http://132.147.68.178:8081/nexus/content/groups/public/';
+        maven{ url 'http://132.147.68.178:8081/nexus/content/groups/public/'}
     }
 
     project.ext {
