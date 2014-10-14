@@ -1,13 +1,13 @@
 allprojects {
     group = 'com.heren.i0'
-    version = '1.0.5'
+    version = '1.0.5-SNAPSHOT'
     repositories {
         // mavenRepo url: 'http://localhost:8081/nexus/content/groups/public/';
         maven{ url 'http://132.147.68.178:8081/nexus/content/groups/public/'}
     }
 
     project.ext {
-        jerseyVersion = '2.5.1'
+        jerseyVersion = '2.6'
         jettyVersion = '9.1.1.v20140108'
         jacksonVersion = '2.3.1'
         guavaVersion = '15.0'
@@ -17,8 +17,8 @@ allprojects {
         flywayVersion = '2.3'
         hibernateJpaVersion = '4.3.1.Final'
         hibernateValidatorVersion = '5.0.2.Final'
-        grizzlyVersion = "2.3.11"
-        tyrusVersion = "1.4"
+        grizzlyVersion = "2.3.14"
+        tyrusVersion = "1.8.3"
         junitVersion = '4.10'
         mockitoVersion = '1.9.5'
         hk2Version = '2.2.0'
@@ -39,7 +39,7 @@ allprojects {
         }
         repositories {
             maven {
-                url 'http://132.147.68.178:8081/nexus/content/repositories/i0/'
+                url 'http://132.147.68.178:8081/nexus/content/repositories/i0-snapshot/'
             }
         }
     }

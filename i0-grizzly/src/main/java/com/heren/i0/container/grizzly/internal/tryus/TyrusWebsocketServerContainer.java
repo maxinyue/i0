@@ -2,13 +2,12 @@ package com.heren.i0.container.grizzly.internal.tryus;
 
 import com.google.inject.Injector;
 import com.heren.i0.container.grizzly.internal.Embedded;
-import org.glassfish.tyrus.core.AnnotatedEndpoint;
-import org.glassfish.tyrus.core.ComponentProviderService;
-import org.glassfish.tyrus.core.ErrorCollector;
+import org.glassfish.tyrus.core.*;
 import org.glassfish.tyrus.server.TyrusServerContainer;
 import org.glassfish.tyrus.spi.WebSocketEngine;
 
 import javax.websocket.DeploymentException;
+import javax.websocket.EndpointConfig;
 import javax.websocket.server.ServerEndpointConfig;
 import java.io.IOException;
 import java.util.Set;
@@ -26,6 +25,7 @@ public class TyrusWebsocketServerContainer extends TyrusServerContainer {
     private final ErrorCollector collector;
     private final ComponentProviderService componentProvider;
     private final Set<Class<?>> classes;
+    public final static int DEFAULT_INCOMING_BUFFER_SIZE=4194315;
 
     public TyrusWebsocketServerContainer(final Embedded server, final String contextPath,
                                          final Set<Class<?>> classes, Injector injector, TyrusWebSocketEngine engine, int port) {
@@ -34,25 +34,23 @@ public class TyrusWebsocketServerContainer extends TyrusServerContainer {
         this.injector = injector;
         this.server = server;
         this.contextPath = contextPath;
-        this.engine = engine == null ? new TyrusWebSocketEngine(this) : engine;
+        this.engine = engine == null ? TyrusWebSocketEngine.builder(this).build() : engine;
         this.port = port;
         this.collector = new ErrorCollector();
         componentProvider = ComponentProviderService.create();
-
     }
 
     public void start() throws IOException, DeploymentException {
         for (Class<?> endpointClass : classes) {
-            AnnotatedEndpoint endpoint = AnnotatedEndpoint.fromInstance(injector.getInstance(endpointClass), componentProvider, true, collector);
+            AnnotatedEndpoint endpoint = AnnotatedEndpoint.fromInstance(injector.getInstance(endpointClass), componentProvider, true,DEFAULT_INCOMING_BUFFER_SIZE, collector);
             register(endpoint);
-//            addEndpoint(endpointClass);
         }
         server.getServer().getListener("grizzly").getKeepAlive().setIdleTimeoutInSeconds(-1);
         server.getServer().getListener("grizzly").registerAddOn(new WebSocketAddOn(this));
     }
 
     public void register(AnnotatedEndpoint endpoint) throws DeploymentException {
-        engine.register(endpoint, contextPath);
+
     }
 
     @Override
