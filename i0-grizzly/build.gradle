@@ -8,10 +8,12 @@ dependencies {
     compile "org.glassfish.grizzly:grizzly-http-server-monitoring:$grizzlyVersion"
 
     compile "javax.websocket:javax.websocket-api:1.1"
-    compile "org.glassfish.tyrus:tyrus-container-grizzly-server:$tyrusVersion"
+
+    compile ("org.glassfish.tyrus:tyrus-container-grizzly-server:$tyrusVersion"){
+        exclude module: 'tyrus-core'
+    }
+    compile "org.glassfish.tyrus:tyrus-core:1.8.3-guice-SNAPSHOT"
     compile "org.glassfish.gmbal:gmbal:3.2.0-b003"
-
-
     testCompile "org.eclipse.jetty:jetty-client:$jettyVersion"
     testCompile project(':i0-persist-jpa')
     testCompile "org.eclipse.jetty.websocket:websocket-client:$jettyVersion"

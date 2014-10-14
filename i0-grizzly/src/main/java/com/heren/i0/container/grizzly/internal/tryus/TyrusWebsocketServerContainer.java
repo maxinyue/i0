@@ -50,7 +50,7 @@ public class TyrusWebsocketServerContainer extends TyrusServerContainer {
     }
 
     public void register(AnnotatedEndpoint endpoint) throws DeploymentException {
-
+        engine.register(endpoint, contextPath);
     }
 
     @Override
